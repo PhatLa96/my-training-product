@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-
+import './index.scss';
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import { BrowserRouter } from 'react-router-dom';
+import AuthContextProvider from 'features/auth/AuthContext';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <AuthContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AuthContextProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

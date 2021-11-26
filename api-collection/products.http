@@ -1,0 +1,56 @@
+@baseUrl = https://fun-json-server-demo.herokuapp.com/api
+@resourceName=products
+#categories
+
+# @name getAll
+
+GET {{baseUrl}}/{{resourceName}}
+
+###
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?price_gte=500
+
+###
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?color=maroon
+
+###
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?name_like=Gorgeous
+
+###
+
+# @name paginationProducts
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=20
+
+###
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=asc
+
+###
+
+
+# @name addNew
+POST  {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "name":"laptop"
+}
+
+###
+
+# @name update
+PATCH   {{baseUrl}}/{{resourceName}}/2
+Content-Type: application/json
+
+{
+    "name":"New laptop"
+}
+
+###
+
+# @name delete
+PATCH   {{baseUrl}}/{{resourceName}}/2
+Content-Type: application/json
